@@ -1,0 +1,13 @@
+[Unit]
+Description=Runs the update procedure
+
+Wants=network.target
+After=syslog.target network-online.target
+
+[Service]
+Type=simple
+ExecStart=pacman -Syu --noconfirm
+KillMode=process
+
+[Install]
+WantedBy=multi-user.target
